@@ -3,4 +3,7 @@
     <string name="title_analytics">Analytics</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_record">Record</string>
+    <string name="analytics_frag">Analytics_Frag</string>
+    <string name="dashboard_frag">Dashboard_Frag</string>
+    <string name="entryform_frag">Entryform_Frag</string>
 </resources>

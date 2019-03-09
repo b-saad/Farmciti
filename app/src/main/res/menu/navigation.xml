@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_analytics"
         android:icon="@drawable/ic_graph"
         android:title="@string/title_analytics" />
 
     <item
-        android:id="@+id/navigation_myFarm"
+        android:id="@+id/navigation_dashboard"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_dashboard" />
 
     <item
-        android:id="@+id/navigation_tag"
+        android:id="@+id/navigation_entryform"
         android:icon="@drawable/ic_tag"
         android:title="@string/title_record" />
 
