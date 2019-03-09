@@ -9,10 +9,10 @@
     <item
         android:id="@+id/navigation_myFarm"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:title="@string/title_dashboard" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_tag"
         android:icon="@drawable/ic_tag"
         android:title="@string/title_record" />
 

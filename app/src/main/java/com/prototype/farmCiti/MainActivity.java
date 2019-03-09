@@ -18,17 +18,19 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_analytics:
+                case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_analytics);
                     return true;
                 case R.id.navigation_myFarm:
-                    mTextMessage.setText(R.string.title_home);
+                    mTextMessage.setText(R.string.title_dashboard);
                     return true;
-                case R.id.navigation_addMeal:
-                    mTextMessage.setText(R.string.title_addMeal);
+                case R.id.navigation_tag:
+                    mTextMessage.setText(R.string.title_record);
                     return true;
+                    default:
+                        mTextMessage.setText("Hello");
+                        return false;
             }
-            return false;
         }
     };
 
