@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">FarmCiti</string>
     <string name="title_analytics">Analytics</string>
-    <string name="title_home">My Farm</string>
-    <string name="title_addMeal">Add Meal</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_record">Record</string>
 </resources>
