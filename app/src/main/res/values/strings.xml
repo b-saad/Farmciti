@@ -6,4 +6,14 @@
     <string name="analytics_frag">Analytics_Frag</string>
     <string name="dashboard_frag">Dashboard_Frag</string>
     <string name="entryform_frag">Entryform_Frag</string>
+    <string name="emoji_grain">&#x1F33E;</string>
+    <string name="emoji_cow">&#x1F404;</string>
+    <string name="emoji_chicken">&#x1F413;</string>
+    <string name="emoji_pig">&#x1F416;</string>
+    <string name="emoji_other_meat">&#x1F356;</string>
+    <string name="entry_form_grain">Grain &#x1F33E;</string>
+    <string name="entry_form_beef">Beef &#x1F42E;</string>
+    <string name="entry_form_chicken">Chicken &#x1F414;</string>
+    <string name="entry_form_pork">Pork &#x1F437;</string>
+    <string name="entry_form_other_meat">Other Meat &#x1F356;</string>
 </resources>
