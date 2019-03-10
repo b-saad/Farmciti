@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -33,8 +34,14 @@ public class Analyticsfrag extends Fragment {
     private View rootView;
     private BarChart mMeatChart;
     private HorizontalBarChart mWaterChart;
-    private TextView mMeatChartCaptionTextView;
-    private TextView mWaterChartCaptionTextView;
+    private BarChart mFeedChart;
+    private HorizontalBarChart mCo2Chart;
+
+    // Avg meat consumption per capita per day in grams
+    private static float MEAT_CHICKEN = 100.5f;
+    private static float MEAT_PORK = 62.4f;
+    private static float MEAT_BEEF = 82.8f;
+    private static float MEAT_MUTTON = 2.655f;
 
     // litres of water per gram of meat consumed
     private static float WATER_BEEF = 15.03f;
@@ -59,13 +66,13 @@ public class Analyticsfrag extends Fragment {
     };
 
     public void addMeatData() {
-        List<BarEntry> meatAverageEntries = new ArrayList<BarEntry>();
+        List<BarEntry> meatAverageEneries = new ArrayList<BarEntry>();
         List<BarEntry> meatUserEnteries = new ArrayList<BarEntry>();
 
-        meatAverageEntries.add(new BarEntry(0f, 100.5f));
-        meatAverageEntries.add(new BarEntry(1f, 62.4f));
-        meatAverageEntries.add(new BarEntry(2f, 82.8f));
-        meatAverageEntries.add(new BarEntry(3f, 2.655f));
+        meatAverageEneries.add(new BarEntry(0f, MEAT_CHICKEN));
+        meatAverageEneries.add(new BarEntry(1f, MEAT_PORK));
+        meatAverageEneries.add(new BarEntry(2f, MEAT_BEEF));
+        meatAverageEneries.add(new BarEntry(3f, MEAT_MUTTON));
 
         meatUserEnteries.add(new BarEntry(0, 5));
         meatUserEnteries.add(new BarEntry(1, 6));
@@ -77,7 +84,7 @@ public class Analyticsfrag extends Fragment {
         float barWidth = 0.45f; // x2 dataset
         // (0.02 + 0.45) * 2 + 0.06 = 1.00 -> interval per "group"
 
-        BarDataSet set1 = new BarDataSet(meatAverageEntries, "Average");
+        BarDataSet set1 = new BarDataSet(meatAverageEneries, "Average");
         BarDataSet set2 = new BarDataSet(meatUserEnteries, "You");
         set1.setColor(Color.RED);
 
@@ -85,10 +92,13 @@ public class Analyticsfrag extends Fragment {
         data.setBarWidth(barWidth); // set the width of each bar
         mMeatChart.setData(data);
         mMeatChart.groupBars(0, groupSpace, barSpace); // perform the "explicit" grouping
+        Description blankDescription = new Description();
+        blankDescription.setText("");
+        mMeatChart.setDescription(blankDescription);
         XAxis xAxis = mMeatChart.getXAxis();
         xAxis.setCenterAxisLabels(true);
         mMeatChart.getAxisRight().setEnabled(false);
-        xAxis.setValueFormatter(new MeatXAxisValueFormatter(values));
+        xAxis.setValueFormatter(new XAxisValueFormatter(values));
         xAxis.setGranularity(1f);
         xAxis.setAxisMinimum(0);
         xAxis.setAxisMaximum(4);
@@ -99,10 +109,10 @@ public class Analyticsfrag extends Fragment {
     public void addWaterData() {
         List<BarEntry> waterUserEnteries = new ArrayList<BarEntry>();
 
-        waterUserEnteries.add(new BarEntry(0, 4));
-        waterUserEnteries.add(new BarEntry(1, 5));
-        waterUserEnteries.add(new BarEntry(2, 6));
-        waterUserEnteries.add(new BarEntry(3, 7));
+        waterUserEnteries.add(new BarEntry(0, (1 * WATER_CHICKEN)));
+        waterUserEnteries.add(new BarEntry(1, (2 * WATER_PORK)));
+        waterUserEnteries.add(new BarEntry(2, (3 * WATER_BEEF)));
+        waterUserEnteries.add(new BarEntry(3, (4 * WATER_LAMB)));
 
         float groupSpace = 0.06f;
         float barSpace = 0.02f; // x2 dataset
@@ -115,17 +125,82 @@ public class Analyticsfrag extends Fragment {
         BarData data = new BarData(dataSet);
         data.setBarWidth(barWidth); // set the width of each bar
         mWaterChart.setData(data);
+        Description blankDescription = new Description();
+        blankDescription.setText("");
+        mWaterChart.setDescription(blankDescription);
         XAxis xAxis = mWaterChart.getXAxis();
-//        xAxis.setCenterAxisLabels(true);
-        xAxis.setValueFormatter(new WaterXAxisValueFormatter(values));
+        xAxis.setValueFormatter(new XAxisValueFormatter(values));
         xAxis.setGranularity(1f);
         xAxis.setAxisMinimum(-0.5f);
         xAxis.setAxisMaximum(3.5f);
-        mWaterChart.setFitBars(true);
         mWaterChart.fitScreen();
         mWaterChart.invalidate(); // refresh
     }
 
+    public void addFeedData() {
+        List<BarEntry> feedUserEnteries = new ArrayList<BarEntry>();
+
+        feedUserEnteries.add(new BarEntry(0, (5 * FEED_CHICKEN)));
+        feedUserEnteries.add(new BarEntry(1, (6 * FEED_PORK)));
+        feedUserEnteries.add(new BarEntry(2, (7 * FEED_BEEF)));
+        feedUserEnteries.add(new BarEntry(3, (8 * FEED_LAMB)));
+
+        float groupSpace = 0.06f;
+        float barSpace = 0.02f; // x2 dataset
+        float barWidth = 0.45f; // x2 dataset
+        // (0.02 + 0.45) * 2 + 0.06 = 1.00 -> interval per "group"
+
+        BarDataSet dataSet = new BarDataSet(feedUserEnteries, "How much feed your food ate");
+        dataSet.setColor(Color.MAGENTA);
+
+        BarData data = new BarData(dataSet);
+        data.setBarWidth(barWidth); // set the width of each bar
+        mFeedChart.setData(data);
+        mFeedChart.getAxisRight().setEnabled(false);
+        Description blankDescription = new Description();
+        blankDescription.setText("");
+        mFeedChart.setDescription(blankDescription);
+        XAxis xAxis = mFeedChart.getXAxis();
+        xAxis.setValueFormatter(new XAxisValueFormatter(values));
+        xAxis.setGranularity(1f);
+        xAxis.setAxisMinimum(-0.5f);
+        xAxis.setAxisMaximum(3.5f);
+        mFeedChart.setFitBars(true);
+        mFeedChart.fitScreen();
+        mFeedChart.invalidate(); // refresh
+    }
+
+    public void addCarbonData() {
+        List<BarEntry> carbonUserEnteries = new ArrayList<BarEntry>();
+
+        carbonUserEnteries.add(new BarEntry(0, (9 * CO2_CHICKEN)));
+        carbonUserEnteries.add(new BarEntry(1, (8 * CO2_PORK)));
+        carbonUserEnteries.add(new BarEntry(2, (6 * CO2_BEEF)));
+        carbonUserEnteries.add(new BarEntry(3, (3 * CO2_LAMB)));
+
+        float groupSpace = 0.06f;
+        float barSpace = 0.02f; // x2 dataset
+        float barWidth = 0.45f; // x2 dataset
+        // (0.02 + 0.45) * 2 + 0.06 = 1.00 -> interval per "group"
+
+        BarDataSet dataSet = new BarDataSet(carbonUserEnteries, "Carbon emissions from your food");
+        dataSet.setColor(Color.rgb(244, 134, 66));
+
+        BarData data = new BarData(dataSet);
+        data.setBarWidth(barWidth); // set the width of each bar
+        mCo2Chart.setData(data);
+        Description blankDescription = new Description();
+        blankDescription.setText("");
+        mCo2Chart.setDescription(blankDescription);
+        XAxis xAxis = mCo2Chart.getXAxis();
+        xAxis.setValueFormatter(new XAxisValueFormatter(values));
+        xAxis.setGranularity(1f);
+        xAxis.setAxisMinimum(-0.5f);
+        xAxis.setAxisMaximum(3.5f);
+        mCo2Chart.setFitBars(true);
+        mCo2Chart.fitScreen();
+        mCo2Chart.invalidate(); // refresh
+    }
 
     public Analyticsfrag() {
 
@@ -147,43 +222,21 @@ public class Analyticsfrag extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mMeatChart = (BarChart) view.findViewById(R.id.bc_meat_consumption_chart);
         mWaterChart = (HorizontalBarChart) view.findViewById(R.id.bc_water_usage_chart);
-        mMeatChartCaptionTextView = (TextView) view.findViewById(R.id.tv_meat_consumption_caption);
-        mWaterChartCaptionTextView = (TextView) view.findViewById(R.id.tv_water_usage_caption);
+        mFeedChart = (BarChart) view.findViewById(R.id.bc_feed_usage_chart);
+        mCo2Chart = (HorizontalBarChart) view.findViewById(R.id.bc_c02_emission_char);
+
+
         addMeatData();
         addWaterData();
+        addFeedData();
+        addCarbonData();
     }
 
-    public class MeatXAxisValueFormatter implements IAxisValueFormatter {
+    public class XAxisValueFormatter implements IAxisValueFormatter {
 
         private String[] mValues;
 
-        public MeatXAxisValueFormatter(String[] values) {
-            this.mValues = values;
-        }
-
-        @Override
-        public String getFormattedValue(float value, AxisBase axis) {
-            // "value" represents the position of the label on the axis (x or y)
-            if ( value <= 0 ) {
-                return mValues[0];
-            } else if ( value == 1) {
-                return mValues[1];
-            } else if ( value == 2) {
-                return mValues[2];
-            } else if ( value == 3) {
-                return mValues[3];
-            }
-            return "";
-        }
-
-    }
-
-
-    public class WaterXAxisValueFormatter implements IAxisValueFormatter {
-
-        private String[] mValues;
-
-        public WaterXAxisValueFormatter(String[] values) {
+        public XAxisValueFormatter(String[] values) {
             this.mValues = values;
         }
 
