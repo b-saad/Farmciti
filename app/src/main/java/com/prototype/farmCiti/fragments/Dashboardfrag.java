@@ -36,10 +36,10 @@ public class Dashboardfrag extends Fragment {
     private static int OTHER_MEAT_DEFAULT = 7;
 
     // User's progress (# of cows the user has)
-    private static int BEEF_USER = 0;
-    private static int CHICKEN_USER = 0;
-    private static int PORK_USER = 0;
-    private static int OTHER_MEAT_USER = 0;
+    private int BEEF_USER = 0;
+    private int CHICKEN_USER = 0;
+    private int PORK_USER = 0;
+    private int OTHER_MEAT_USER = 0;
 
     // daily meat usage average
     private static float MEAT_CHICKEN = 100.5f;
