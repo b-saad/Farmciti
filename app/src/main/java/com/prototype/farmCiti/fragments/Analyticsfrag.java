@@ -18,6 +18,7 @@ import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -96,12 +97,14 @@ public class Analyticsfrag extends Fragment {
         blankDescription.setText("");
         mMeatChart.setDescription(blankDescription);
         XAxis xAxis = mMeatChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setCenterAxisLabels(true);
         mMeatChart.getAxisRight().setEnabled(false);
         xAxis.setValueFormatter(new XAxisValueFormatter(values));
         xAxis.setGranularity(1f);
         xAxis.setAxisMinimum(0);
         xAxis.setAxisMaximum(4);
+
         mMeatChart.fitScreen();
         mMeatChart.invalidate(); // refresh
     }
@@ -129,6 +132,7 @@ public class Analyticsfrag extends Fragment {
         blankDescription.setText("");
         mWaterChart.setDescription(blankDescription);
         XAxis xAxis = mWaterChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setValueFormatter(new XAxisValueFormatter(values));
         xAxis.setGranularity(1f);
         xAxis.setAxisMinimum(-0.5f);
@@ -161,6 +165,7 @@ public class Analyticsfrag extends Fragment {
         blankDescription.setText("");
         mFeedChart.setDescription(blankDescription);
         XAxis xAxis = mFeedChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setValueFormatter(new XAxisValueFormatter(values));
         xAxis.setGranularity(1f);
         xAxis.setAxisMinimum(-0.5f);
@@ -193,6 +198,7 @@ public class Analyticsfrag extends Fragment {
         blankDescription.setText("");
         mCo2Chart.setDescription(blankDescription);
         XAxis xAxis = mCo2Chart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setValueFormatter(new XAxisValueFormatter(values));
         xAxis.setGranularity(1f);
         xAxis.setAxisMinimum(-0.5f);
