@@ -34,6 +34,16 @@ public class Analyticsfrag extends Fragment {
     private TextView mMeatChartCaptionTextView;
     private TextView mWaterChartCaptionTextView;
 
+    private static float WATER_BEEF = 15.03f; //per gram
+    private static float WATER_PORK = 4.8f;
+    private static float WATER_CHICKEN = 4.325f;
+    private static float WATER_LAMB = 8.763f;
+
+    private static float CO2_BEEF = 0.0346f;
+    private static float CO2_PORK = 0.00635f;
+    private static float CO2_CHICKEN = 0.00457f;
+    private static float CO2_LAMB = 0.0174f;
+
     List<BarEntry> meatAverageEntries = new ArrayList<BarEntry>();
     List<BarEntry> meatUserEnteries = new ArrayList<BarEntry>();
 
@@ -43,10 +53,10 @@ public class Analyticsfrag extends Fragment {
 
     public void addData() {
 
-        meatAverageEntries.add(new BarEntry(0, 1));
-        meatAverageEntries.add(new BarEntry(1, 2));
-        meatAverageEntries.add(new BarEntry(2, 3));
-        meatAverageEntries.add(new BarEntry(3, 4));
+        meatAverageEntries.add(new BarEntry(0f, 100.5f));
+        meatAverageEntries.add(new BarEntry(1f, 62.4f));
+        meatAverageEntries.add(new BarEntry(2f, 82.8f));
+        meatAverageEntries.add(new BarEntry(3f, 2.655f));
 
         meatUserEnteries.add(new BarEntry(0, 5));
         meatUserEnteries.add(new BarEntry(1, 6));
