@@ -67,6 +67,9 @@
             android:id="@+id/pick_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:background="@color/colorPrimary"
+            android:textColor="#ffffff"
             android:text="@string/pick_time" />
 
 
@@ -96,6 +99,8 @@
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:background="@color/colorPrimary"
+            android:textColor="#ffffff"
             android:text="@string/save_record"
             android:textSize="20sp" />
     </LinearLayout>
