@@ -27,8 +27,8 @@
     <string name="save_record">Save record</string>
     <string name="date">Date</string>
     <string name="pick_time">pick date</string>
-    <string name="meat_graph_caption">Your meat consumption vs Average meat consumption</string>
-    <string name="water_graph_caption">Amount of water used to raise your food</string>
-    <string name="feed_graph_caption">Amount of Animal feed used to raise your food</string>
-    <string name="carbon_graph_caption">Carbon emissions released while raising your food</string>
+    <string name="meat_graph_caption">Your Meat Consumption vs Average Meat Consumption (g)</string>
+    <string name="water_graph_caption">Amount of Water Used to Raise Your Food (L)</string>
+    <string name="feed_graph_caption">Amount of Animal Feed Used to Raise Your Food (g)</string>
+    <string name="carbon_graph_caption">Carbon Emissions Released While Raising Your Food (kg)</string>
 </resources>

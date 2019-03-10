@@ -10,9 +10,9 @@
         android:padding="@dimen/frag_dashboard_rectangle_margin"
         android:textColor="#ffffff"
         android:fontFamily="sans-serif"
-        android:textSize="30sp"
+        android:textSize="21sp"
         android:gravity="center"
-        android:text="@string/record_your_consumption" />
+        android:text="&#x26a1; Record Your Consumption! &#x26a1;" />
 
     <LinearLayout
         android:id="@+id/form_body"

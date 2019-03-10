@@ -136,7 +136,7 @@ public class Analyticsfrag extends Fragment {
         float barWidth = 0.45f; // x2 dataset
         // (0.02 + 0.45) * 2 + 0.06 = 1.00 -> interval per "group"
 
-        BarDataSet dataSet = new BarDataSet(waterUserEnteries, "Your Water Usage");
+        BarDataSet dataSet = new BarDataSet(waterUserEnteries, "Water used in food production");
         dataSet.setColor(Color.BLUE);
 
         BarData data = new BarData(dataSet);
@@ -168,7 +168,7 @@ public class Analyticsfrag extends Fragment {
         float barWidth = 0.45f; // x2 dataset
         // (0.02 + 0.45) * 2 + 0.06 = 1.00 -> interval per "group"
 
-        BarDataSet dataSet = new BarDataSet(feedUserEnteries, "How much feed your food ate");
+        BarDataSet dataSet = new BarDataSet(feedUserEnteries, "Feed used in food production");
         dataSet.setColor(Color.MAGENTA);
 
         BarData data = new BarData(dataSet);
