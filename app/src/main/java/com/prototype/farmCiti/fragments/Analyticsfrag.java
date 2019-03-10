@@ -1,5 +1,7 @@
 package com.prototype.farmCiti.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
@@ -24,7 +26,9 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.google.gson.Gson;
 import com.prototype.farmCiti.R;
+import com.prototype.farmCiti.datamodel.MealObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +41,7 @@ public class Analyticsfrag extends Fragment {
     private HorizontalBarChart mWaterChart;
     private BarChart mFeedChart;
     private HorizontalBarChart mCo2Chart;
+    private SharedPreferences sharedPreferences;
 
     // Avg meat consumption per capita per week in grams
     private static float MEAT_CHICKEN = 703.5f;
@@ -62,9 +67,18 @@ public class Analyticsfrag extends Fragment {
     private static float FEED_CHICKEN = 3.3f;
     private static float FEED_OTHER = 15f;
 
+    // weekly meat consumption average user
+    private static float USER_CHICKEN = 0f;
+    private static float USER_PORK = 0f;
+    private static float USER_BEEF = 0f;
+    private static float USER_OTHER = 0f;
+
     String[] values = new String[] {
             "Poultry", "Pigmeat", "Beef", "Other"
     };
+
+    public ArrayList<MealObject> meals = new ArrayList<>();
+
 
     public void addMeatData() {
         List<BarEntry> meatAverageEneries = new ArrayList<BarEntry>();
@@ -75,10 +89,10 @@ public class Analyticsfrag extends Fragment {
         meatAverageEneries.add(new BarEntry(2f, MEAT_BEEF));
         meatAverageEneries.add(new BarEntry(3f, MEAT_OTHER));
 
-        meatUserEnteries.add(new BarEntry(0, 5));
-        meatUserEnteries.add(new BarEntry(1, 6));
-        meatUserEnteries.add(new BarEntry(2, 7));
-        meatUserEnteries.add(new BarEntry(3, 8));
+        meatUserEnteries.add(new BarEntry(0, USER_CHICKEN));
+        meatUserEnteries.add(new BarEntry(1, USER_PORK));
+        meatUserEnteries.add(new BarEntry(2, USER_BEEF));
+        meatUserEnteries.add(new BarEntry(3, USER_OTHER));
 
         float groupSpace = 0.06f;
         float barSpace = 0.02f; // x2 dataset
@@ -112,10 +126,10 @@ public class Analyticsfrag extends Fragment {
     public void addWaterData() {
         List<BarEntry> waterUserEnteries = new ArrayList<BarEntry>();
 
-        waterUserEnteries.add(new BarEntry(0, (1 * WATER_CHICKEN)));
-        waterUserEnteries.add(new BarEntry(1, (2 * WATER_PORK)));
-        waterUserEnteries.add(new BarEntry(2, (3 * WATER_BEEF)));
-        waterUserEnteries.add(new BarEntry(3, (4 * WATER_OTHER)));
+        waterUserEnteries.add(new BarEntry(0, (USER_CHICKEN * WATER_CHICKEN)));
+        waterUserEnteries.add(new BarEntry(1, (USER_PORK * WATER_PORK)));
+        waterUserEnteries.add(new BarEntry(2, (USER_BEEF * WATER_BEEF)));
+        waterUserEnteries.add(new BarEntry(3, (USER_OTHER * WATER_OTHER)));
 
         float groupSpace = 0.06f;
         float barSpace = 0.02f; // x2 dataset
@@ -144,10 +158,10 @@ public class Analyticsfrag extends Fragment {
     public void addFeedData() {
         List<BarEntry> feedUserEnteries = new ArrayList<BarEntry>();
 
-        feedUserEnteries.add(new BarEntry(0, (5 * FEED_CHICKEN)));
-        feedUserEnteries.add(new BarEntry(1, (6 * FEED_PORK)));
-        feedUserEnteries.add(new BarEntry(2, (7 * FEED_BEEF)));
-        feedUserEnteries.add(new BarEntry(3, (8 * FEED_OTHER)));
+        feedUserEnteries.add(new BarEntry(0, (USER_CHICKEN * FEED_CHICKEN)));
+        feedUserEnteries.add(new BarEntry(1, (USER_PORK * FEED_PORK)));
+        feedUserEnteries.add(new BarEntry(2, (USER_BEEF * FEED_BEEF)));
+        feedUserEnteries.add(new BarEntry(3, (USER_OTHER * FEED_OTHER)));
 
         float groupSpace = 0.06f;
         float barSpace = 0.02f; // x2 dataset
@@ -178,10 +192,10 @@ public class Analyticsfrag extends Fragment {
     public void addCarbonData() {
         List<BarEntry> carbonUserEnteries = new ArrayList<BarEntry>();
 
-        carbonUserEnteries.add(new BarEntry(0, (9 * CO2_CHICKEN)));
-        carbonUserEnteries.add(new BarEntry(1, (8 * CO2_PORK)));
-        carbonUserEnteries.add(new BarEntry(2, (6 * CO2_BEEF)));
-        carbonUserEnteries.add(new BarEntry(3, (3 * CO2_OTHER)));
+        carbonUserEnteries.add(new BarEntry(0, (USER_CHICKEN * CO2_CHICKEN)));
+        carbonUserEnteries.add(new BarEntry(1, (USER_PORK * CO2_PORK)));
+        carbonUserEnteries.add(new BarEntry(2, (USER_BEEF * CO2_BEEF)));
+        carbonUserEnteries.add(new BarEntry(3, (USER_OTHER * CO2_OTHER)));
 
         float groupSpace = 0.06f;
         float barSpace = 0.02f; // x2 dataset
@@ -230,12 +244,39 @@ public class Analyticsfrag extends Fragment {
         mWaterChart = (HorizontalBarChart) view.findViewById(R.id.bc_water_usage_chart);
         mFeedChart = (BarChart) view.findViewById(R.id.bc_feed_usage_chart);
         mCo2Chart = (HorizontalBarChart) view.findViewById(R.id.bc_c02_emission_char);
+        sharedPreferences = getActivity().getSharedPreferences("data", Context.MODE_PRIVATE);
 
+        Gson gson = new Gson();
+        String rawData = sharedPreferences.getString("JsonTag","");
+        String[] dataList = rawData.split("###");
+        for(String data: dataList) { meals.add(gson.fromJson(data,MealObject.class));}
 
+        updateCount();
         addMeatData();
         addWaterData();
         addFeedData();
         addCarbonData();
+    }
+
+    private void updateCount() {
+        if (meals == null) { return; }
+        for (MealObject meal : meals) {
+            if (meal == null) { return; }
+            switch (meal.getType()) {
+                case "Beef":
+                    USER_BEEF += meal.getAmount();
+                    break;
+                case "Chicken":
+                    USER_CHICKEN += meal.getAmount();
+                    break;
+                case "Pork":
+                    USER_PORK += meal.getAmount();
+                    break;
+                case "Other":
+                    USER_OTHER += meal.getAmount();
+                    break;
+            }
+        }
     }
 
     public class XAxisValueFormatter implements IAxisValueFormatter {

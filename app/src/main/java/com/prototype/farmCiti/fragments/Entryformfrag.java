@@ -78,10 +78,9 @@ public class Entryformfrag extends Fragment implements DatePickerCallback, TimeP
                     MealObject mealObject = new MealObject(consumptionType,amountConsumed,date);
                     Gson gson = new Gson();
                     String jsonString = gson.toJson(mealObject);
-                    Toast.makeText(getContext(),jsonString,Toast.LENGTH_SHORT).show();
                     String existingData = sharedPreferences.getString("JsonTag","");
                     if(!existingData.isEmpty()) {
-                        jsonString = existingData + "," + jsonString;
+                        jsonString = existingData + "###" + jsonString;
                     }
                     sharedPreferences.edit().putString("JsonTag",jsonString).apply();
 
