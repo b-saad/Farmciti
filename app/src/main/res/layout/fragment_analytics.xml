@@ -1,11 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="analytics_view"/>
 
-</android.widget.RelativeLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+        <android.widget.RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/navigation_analytics_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:padding="@dimen/frag_dashboard_rectangle_margin"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif"
+                android:textSize="25sp"
+                android:layout_marginBottom="15dp"
+                android:text="Environmental Impact"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tv_meat_consumption_caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/navigation_analytics_title"
+                android:text="@string/meat_graph_caption"/>
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/bc_meat_consumption_chart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/tv_meat_consumption_caption">
+            </com.github.mikephil.charting.charts.BarChart>
+
+
+            <TextView
+                android:id="@+id/tv_water_usage_caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_centerHorizontal="true"
+                android:text="@string/water_graph_caption"
+                android:layout_below="@id/bc_meat_consumption_chart" />
+
+            <com.github.mikephil.charting.charts.HorizontalBarChart
+                android:id="@+id/bc_water_usage_chart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_below="@id/tv_water_usage_caption"
+                android:layout_marginBottom="10dp">
+            </com.github.mikephil.charting.charts.HorizontalBarChart>
+
+            <TextView
+                android:id="@+id/tv_feed_usage_caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_centerHorizontal="true"
+                android:text="@string/feed_graph_caption"
+                android:layout_below="@id/bc_water_usage_chart" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/bc_feed_usage_chart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_below="@id/tv_feed_usage_caption"
+                android:layout_marginBottom="10dp">
+            </com.github.mikephil.charting.charts.BarChart>
+
+            <TextView
+                android:id="@+id/tv_c02_emission_caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_centerHorizontal="true"
+                android:text="@string/carbon_graph_caption"
+                android:layout_below="@id/bc_feed_usage_chart" />
+
+            <com.github.mikephil.charting.charts.HorizontalBarChart
+                android:id="@+id/bc_c02_emission_char"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_below="@id/tv_c02_emission_caption"
+                android:layout_marginBottom="80dp" >
+            </com.github.mikephil.charting.charts.HorizontalBarChart>
+
+
+        </android.widget.RelativeLayout>
+
+
+</ScrollView>
