@@ -37,7 +37,7 @@
                     android:fontFamily="sans-serif"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/frag_Entry_Form_Text_Size"
-                    android:text="@string/entry_form_grain"/>
+                    android:text="@string/entry_form_grain" />
 
                 <TextView
                     android:id="@+id/farm_grain"
@@ -49,7 +49,7 @@
                     android:padding="@dimen/frag_dashboard_rectangle_margin_inside"
                     android:layout_marginLeft="@dimen/frag_dashboard_rectangle_margin"
                     android:layout_marginRight="@dimen/frag_dashboard_rectangle_margin"
-                    android:background="@color/colorRectangle"
+                    android:background="@drawable/dashboard_border"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/frag_Entry_Form_Text_Size"
                     android:text="@string/emoji_grain"/>
@@ -80,7 +80,7 @@
                     android:padding="@dimen/frag_dashboard_rectangle_margin_inside"
                     android:layout_marginLeft="@dimen/frag_dashboard_rectangle_margin"
                     android:layout_marginRight="@dimen/frag_dashboard_rectangle_margin"
-                    android:background="@color/colorRectangle"
+                    android:background="@drawable/dashboard_border"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/frag_Entry_Form_Text_Size"
                     android:text="@string/emoji_cow"/>
@@ -111,7 +111,7 @@
                     android:padding="@dimen/frag_dashboard_rectangle_margin_inside"
                     android:layout_marginLeft="@dimen/frag_dashboard_rectangle_margin"
                     android:layout_marginRight="@dimen/frag_dashboard_rectangle_margin"
-                    android:background="@color/colorRectangle"
+                    android:background="@drawable/dashboard_border"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/frag_Entry_Form_Text_Size"
                     android:text="@string/emoji_chicken"/>
@@ -142,7 +142,7 @@
                     android:padding="@dimen/frag_dashboard_rectangle_margin_inside"
                     android:layout_marginLeft="@dimen/frag_dashboard_rectangle_margin"
                     android:layout_marginRight="@dimen/frag_dashboard_rectangle_margin"
-                    android:background="@color/colorRectangle"
+                    android:background="@drawable/dashboard_border"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/frag_Entry_Form_Text_Size"
                     android:text="@string/emoji_pig"/>
@@ -174,7 +174,7 @@
                     android:padding="@dimen/frag_dashboard_rectangle_margin_inside"
                     android:layout_marginLeft="@dimen/frag_dashboard_rectangle_margin"
                     android:layout_marginRight="@dimen/frag_dashboard_rectangle_margin"
-                    android:background="@color/colorRectangle"
+                    android:background="@drawable/dashboard_border"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/frag_Entry_Form_Text_Size"
                     android:text="@string/emoji_other_meat"/>
