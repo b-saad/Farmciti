@@ -36,17 +36,23 @@ public class Analyticsfrag extends Fragment {
     private TextView mMeatChartCaptionTextView;
     private TextView mWaterChartCaptionTextView;
 
-    // water per gram of meat consumed
-    private static float WATER_BEEF = 15.03f; //per gram
+    // litres of water per gram of meat consumed
+    private static float WATER_BEEF = 15.03f;
     private static float WATER_PORK = 4.8f;
     private static float WATER_CHICKEN = 4.325f;
     private static float WATER_LAMB = 8.763f;
 
-    // C02 per gram of meat consumed
+    // kg of C02 per gram of meat consumed
     private static float CO2_BEEF = 0.0346f;
     private static float CO2_PORK = 0.00635f;
     private static float CO2_CHICKEN = 0.00457f;
     private static float CO2_LAMB = 0.0174f;
+
+    // gram of feed per gram of meat consumed
+    private static float FEED_BEEF = 25f;
+    private static float FEED_PORK = 6.4f;
+    private static float FEED_CHICKEN = 3.3f;
+    private static float FEED_LAMB = 15f;
 
     String[] values = new String[] {
             "Poultry", "Pigmeat", "Beef", "Mutton/Goat"
