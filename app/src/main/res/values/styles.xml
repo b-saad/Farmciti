@@ -8,8 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="PickersTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:windowFullscreen">false</item>
+    </style>
+
+    <style name="SpinnerText" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">30dp</item>
+    </style>
+    
     <style name="splashTheme" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/farmciti</item>
     </style>
-
 </resources>
