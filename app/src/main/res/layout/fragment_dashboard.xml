@@ -25,36 +25,6 @@
                 android:text="&#x2600; Farm Citi &#x2600;"/>
 
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/dashboardEntry1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/frag_dashboard_rectangle_margin"
-                    android:layout_marginRight="@dimen/frag_dashboard_rectangle_margin"
-                    android:layout_marginTop="@dimen/frag_dashboard_rectangle_margin_inside"
-                    android:fontFamily="sans-serif"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/frag_Entry_Form_Text_Size"
-                    android:text="@string/entry_form_grain" />
-
-                <TextView
-                    android:id="@+id/farm_grain"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:width="@dimen/frag_Dashboard_Rectangle_size_width"
-                    android:height="@dimen/frag_Dashboard_Rectangle_size_height"
-                    android:layout_below="@+id/dashboardEntry1"
-                    android:padding="@dimen/frag_dashboard_rectangle_margin_inside"
-                    android:layout_marginLeft="@dimen/frag_dashboard_rectangle_margin"
-                    android:layout_marginRight="@dimen/frag_dashboard_rectangle_margin"
-                    android:background="@drawable/dashboard_border"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/frag_Entry_Form_Text_Size"
-                    android:text="@string/emoji_grain"/>
-            </RelativeLayout>
-            <RelativeLayout
                 android:id="@+id/dashboardEntry2Layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -68,7 +38,7 @@
                     android:fontFamily="sans-serif"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/frag_Entry_Form_Text_Size"
-                    android:text="@string/entry_form_beef"/>
+                    android:text="@string/entry_beef"/>
 
                 <TextView
                     android:id="@+id/farm_beef"
@@ -99,7 +69,7 @@
                     android:fontFamily="sans-serif"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/frag_Entry_Form_Text_Size"
-                    android:text="@string/entry_form_chicken"/>
+                    android:text="@string/entry_chicken"/>
 
                 <TextView
                     android:id="@+id/farm_chicken"
@@ -130,7 +100,7 @@
                     android:fontFamily="sans-serif"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/frag_Entry_Form_Text_Size"
-                    android:text="@string/entry_form_pork"/>
+                    android:text="@string/entry_pork"/>
 
                 <TextView
                     android:id="@+id/farm_pork"
@@ -162,7 +132,7 @@
                     android:fontFamily="sans-serif"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/frag_Entry_Form_Text_Size"
-                    android:text="@string/entry_form_other_meat"/>
+                    android:text="@string/entry_other_meat"/>
 
                 <TextView
                     android:id="@+id/farm_other_meat"

@@ -38,32 +38,32 @@ public class Analyticsfrag extends Fragment {
     private BarChart mFeedChart;
     private HorizontalBarChart mCo2Chart;
 
-    // Avg meat consumption per capita per day in grams
-    private static float MEAT_CHICKEN = 100.5f;
-    private static float MEAT_PORK = 62.4f;
-    private static float MEAT_BEEF = 82.8f;
-    private static float MEAT_MUTTON = 2.655f;
+    // Avg meat consumption per capita per week in grams
+    private static float MEAT_CHICKEN = 703.5f;
+    private static float MEAT_PORK = 436.8f;
+    private static float MEAT_BEEF = 579.6f;
+    private static float MEAT_OTHER = 18.585f;
 
     // litres of water per gram of meat consumed
     private static float WATER_BEEF = 15.03f;
     private static float WATER_PORK = 4.8f;
     private static float WATER_CHICKEN = 4.325f;
-    private static float WATER_LAMB = 8.763f;
+    private static float WATER_OTHER = 8.763f;
 
     // kg of C02 per gram of meat consumed
     private static float CO2_BEEF = 0.0346f;
     private static float CO2_PORK = 0.00635f;
     private static float CO2_CHICKEN = 0.00457f;
-    private static float CO2_LAMB = 0.0174f;
+    private static float CO2_OTHER = 0.0174f;
 
     // gram of feed per gram of meat consumed
     private static float FEED_BEEF = 25f;
     private static float FEED_PORK = 6.4f;
     private static float FEED_CHICKEN = 3.3f;
-    private static float FEED_LAMB = 15f;
+    private static float FEED_OTHER = 15f;
 
     String[] values = new String[] {
-            "Poultry", "Pigmeat", "Beef", "Mutton/Goat"
+            "Poultry", "Pigmeat", "Beef", "Other"
     };
 
     public void addMeatData() {
@@ -73,7 +73,7 @@ public class Analyticsfrag extends Fragment {
         meatAverageEneries.add(new BarEntry(0f, MEAT_CHICKEN));
         meatAverageEneries.add(new BarEntry(1f, MEAT_PORK));
         meatAverageEneries.add(new BarEntry(2f, MEAT_BEEF));
-        meatAverageEneries.add(new BarEntry(3f, MEAT_MUTTON));
+        meatAverageEneries.add(new BarEntry(3f, MEAT_OTHER));
 
         meatUserEnteries.add(new BarEntry(0, 5));
         meatUserEnteries.add(new BarEntry(1, 6));
@@ -115,7 +115,7 @@ public class Analyticsfrag extends Fragment {
         waterUserEnteries.add(new BarEntry(0, (1 * WATER_CHICKEN)));
         waterUserEnteries.add(new BarEntry(1, (2 * WATER_PORK)));
         waterUserEnteries.add(new BarEntry(2, (3 * WATER_BEEF)));
-        waterUserEnteries.add(new BarEntry(3, (4 * WATER_LAMB)));
+        waterUserEnteries.add(new BarEntry(3, (4 * WATER_OTHER)));
 
         float groupSpace = 0.06f;
         float barSpace = 0.02f; // x2 dataset
@@ -147,7 +147,7 @@ public class Analyticsfrag extends Fragment {
         feedUserEnteries.add(new BarEntry(0, (5 * FEED_CHICKEN)));
         feedUserEnteries.add(new BarEntry(1, (6 * FEED_PORK)));
         feedUserEnteries.add(new BarEntry(2, (7 * FEED_BEEF)));
-        feedUserEnteries.add(new BarEntry(3, (8 * FEED_LAMB)));
+        feedUserEnteries.add(new BarEntry(3, (8 * FEED_OTHER)));
 
         float groupSpace = 0.06f;
         float barSpace = 0.02f; // x2 dataset
@@ -181,7 +181,7 @@ public class Analyticsfrag extends Fragment {
         carbonUserEnteries.add(new BarEntry(0, (9 * CO2_CHICKEN)));
         carbonUserEnteries.add(new BarEntry(1, (8 * CO2_PORK)));
         carbonUserEnteries.add(new BarEntry(2, (6 * CO2_BEEF)));
-        carbonUserEnteries.add(new BarEntry(3, (3 * CO2_LAMB)));
+        carbonUserEnteries.add(new BarEntry(3, (3 * CO2_OTHER)));
 
         float groupSpace = 0.06f;
         float barSpace = 0.02f; // x2 dataset
