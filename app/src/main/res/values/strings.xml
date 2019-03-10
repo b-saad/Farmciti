@@ -26,7 +26,7 @@
     <string name="amount">Amount</string>
     <string name="save_record">Save record</string>
     <string name="date">Date</string>
-    <string name="pick_time">pick time</string>
+    <string name="pick_time">pick date</string>
     <string name="meat_graph_caption">Your meat consumption vs Average meat consumption</string>
     <string name="water_graph_caption">Amount of water used to raise your food</string>
     <string name="feed_graph_caption">Amount of Animal feed used to raise your food</string>
