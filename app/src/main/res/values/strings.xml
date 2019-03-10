@@ -17,11 +17,11 @@
     <string name="entry_form_pork">Pork &#x1F437;</string>
     <string name="entry_form_other_meat">Other Meat &#x1F356;</string>
     <string name="record_your_consumption">Record Your Consumption!</string>
-    <string name="consumption_type">Meal Type</string>
+    <string name="consumption_type">Consumption Type</string>
     <string name="approximate_amount_in_gram">Approximate weight in "g"</string>
     <string name="amount">Amount</string>
     <string name="save_record">Save record</string>
-    <string name="date">date</string>
+    <string name="date">Date</string>
     <string name="pick_time">pick time</string>
     <string name="meat_graph_caption">Your meat consumption vs Average meat consumption</string>
     <string name="water_graph_caption">Amount of water used to raise your food</string>

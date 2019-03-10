@@ -1,11 +1,9 @@
 package com.prototype.farmCiti.fragments;
 
-import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.fastaccess.datetimepicker.DatePickerFragmentDialog;
+import com.fastaccess.datetimepicker.DateTimeBuilder;
 import com.fastaccess.datetimepicker.callback.DatePickerCallback;
 import com.fastaccess.datetimepicker.callback.TimePickerCallback;
 import com.prototype.farmCiti.R;
@@ -47,20 +46,20 @@ public class Entryformfrag extends Fragment implements DatePickerCallback, TimeP
         pickTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerFragmentDialog.newInstance(true).show(getChildFragmentManager(), "DatePickerFragmentDialog");
+                DatePickerFragmentDialog.newInstance(DateTimeBuilder.get().withTheme(R.style.PickersTheme)).show(getChildFragmentManager(), "DatePickerFragmentDialog");
             }
         });
 
         dateResult = (TextView) rootView.findViewById(R.id.datepick_result);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.food_types_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.food_types_array, R.layout.spinner_text);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         return rootView;
     }
 
     public String getDateOnly(long time) {
-        return new SimpleDateFormat("dd MMM yyyy", Locale.getDefault()).format(time);
+        return new SimpleDateFormat("dd/MMM/yyyy", Locale.getDefault()).format(time);
     }
 
     public static String getDateAndTime(long time) {
