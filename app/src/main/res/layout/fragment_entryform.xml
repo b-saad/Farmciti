@@ -10,7 +10,7 @@
         android:padding="@dimen/frag_dashboard_rectangle_margin"
         android:textColor="#ffffff"
         android:fontFamily="sans-serif"
-        android:textSize="21sp"
+        android:textSize="20.5sp"
         android:gravity="center"
         android:text="&#x26a1; Record Your Consumption! &#x26a1;" />
 

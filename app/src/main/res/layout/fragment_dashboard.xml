@@ -21,8 +21,8 @@
                 android:padding="@dimen/frag_dashboard_rectangle_margin"
                 android:textColor="#ffffff"
                 android:fontFamily="sans-serif"
-                android:textSize="30sp"
-                android:text="&#x2600; Farm Citi &#x2600;"/>
+                android:textSize="21sp"
+                android:text="&#x1f31e; Farm Citi &#x1f31e;"/>
 
             <RelativeLayout
                 android:id="@+id/dashboardEntry2Layout"
