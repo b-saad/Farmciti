@@ -22,15 +22,12 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_analytics:
                     getSupportFragmentManager().beginTransaction().replace(R.id.container_main, Analyticsfrag.newInstance(), getString(R.string.analytics_frag)).commit();
-                    Log.d("Hello", "onNavigationItemSelected1: ");
                     return true;
                 case R.id.navigation_dashboard:
                     getSupportFragmentManager().beginTransaction().replace(R.id.container_main, Dashboardfrag.newInstance(), getString(R.string.dashboard_frag)).commit();
-                    Log.d("Hello", "onNavigationItemSelected2: ");
                     return true;
                 case R.id.navigation_entryform:
                     getSupportFragmentManager().beginTransaction().replace(R.id.container_main, Entryformfrag.newInstance(), getString(R.string.entryform_frag)).commit();
-                    Log.d("Hello", "onNavigationItemSelected3: ");
                     return true;
                 default:
                     return false;
@@ -48,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         if(actionBar != null) {
             actionBar.hide();
         }
-        getSupportFragmentManager().beginTransaction().add(R.id.container_main, Analyticsfrag.newInstance(), getString(R.string.analytics_frag)).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.container_main, Entryformfrag.newInstance(), getString(R.string.entryform_frag)).commit();
     }
 
 }
