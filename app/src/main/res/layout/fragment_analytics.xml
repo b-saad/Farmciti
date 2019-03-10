@@ -10,29 +10,32 @@
         xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/navigation_analytics_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:layout_margin="5dp"
+                android:text="Environmental Impact"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/tv_meat_consumption_caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_below="@id/navigation_analytics_title"
+                android:text="MEAT chart CAPTION"/>
+
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/bc_meat_consumption_chart"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp">
-            </com.github.mikephil.charting.charts.BarChart>
-
-            <TextView
-                android:id="@+id/tv_meat_consumption_caption"
-                android:layout_width="wrap_content"
-                android:layout_height="20sp"
-                android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_below="@id/bc_meat_consumption_chart"
-                android:text="MEAT chart CAPTION"/>
-
-            <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/bc_water_usage_chart"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"
                 android:layout_below="@id/tv_meat_consumption_caption">
             </com.github.mikephil.charting.charts.BarChart>
 
@@ -40,11 +43,26 @@
             <TextView
                 android:id="@+id/tv_water_usage_caption"
                 android:layout_width="wrap_content"
-                android:layout_height="20sp"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:text="WATER chart CAPTION"
-                android:layout_below="@id/bc_water_usage_chart" />
+                android:layout_below="@id/bc_meat_consumption_chart" />
+
+            <com.github.mikephil.charting.charts.HorizontalBarChart
+                android:id="@+id/bc_water_usage_chart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_below="@id/tv_water_usage_caption">
+                android:layout_marginBottom="10dp">
+            </com.github.mikephil.charting.charts.HorizontalBarChart>
+
+
+
+
 
     </android.widget.RelativeLayout>
 
