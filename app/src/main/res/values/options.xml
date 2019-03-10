@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="food_types_array">
+        <item>Grain &#x1F33E;</item>
+        <item>Beef &#x1F42E;</item>
+        <item>Chicken &#x1F414;</item>
+        <item>Pork &#x1F437;</item>
+        <item>Other Meat &#x1F356;</item>
+    </string-array>
+</resources>
