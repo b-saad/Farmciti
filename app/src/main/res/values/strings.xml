@@ -10,12 +10,12 @@
     <string name="emoji_cow">&#x1F404;</string>
     <string name="emoji_chicken">&#x1F413;</string>
     <string name="emoji_pig">&#x1F416;</string>
-    <string name="emoji_other_meat">&#x1F41F;</string>
+    <string name="emoji_other_meat">&#x1F356;</string>
     <string name="entry_form_grain">Grain &#x1F33E;</string>
     <string name="entry_beef">Cows &#x1F42E;</string>
     <string name="entry_chicken">Chickens &#x1F414;</string>
     <string name="entry_pork">Pigs &#x1F437;</string>
-    <string name="entry_other_meat">Other Animals &#x1F41F;</string>
+    <string name="entry_other_meat">Meat &#x1F356;</string>
     <string name="entry_form_beef">Beef &#x1F42E;</string>
     <string name="entry_form_chicken">Chicken &#x1F414;</string>
     <string name="entry_form_pork">Pork &#x1F437;</string>
